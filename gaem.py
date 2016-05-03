@@ -73,7 +73,7 @@ class Fight:
     def create_turn_order(self):
         order = []
         for al in self.allies:
-            order.append((al.speed,'allie',al))
+            order.append((al.speed,'ally',al))
         for e in self.enemies:
             order.append((e.speed,'enemy',e))
         order.sort(reverse=True)
@@ -85,7 +85,7 @@ class Fight:
         self.turn_order = self.create_turn_order()
         while not enemies_dead:
             for chr in self.turn_order:
-                if chr[1] == 'allie':
+                if chr[1] == 'ally':
                     self.print_actions()
                     action = self.action_selection()
                     self.make_action()
